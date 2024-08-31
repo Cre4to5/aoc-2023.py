@@ -1,5 +1,3 @@
-import re
-
 with open("./1/input.txt") as file:
     lines = file.readlines()
 
@@ -33,10 +31,9 @@ with open("./1/input.txt") as file:
 
         digits_indexes = {}
         for string_digit in string_digits.keys():
-            temp = [m.start() for m in re.finditer(string_digit, line)]
-            for t in temp:
-                if t != -1:
-                    digits_indexes[t] = string_digit
+            temp = str.find(line, string_digit)
+            if temp != -1:
+                digits_indexes[temp] = string_digit
         
         # print(digits_indexes)
 
